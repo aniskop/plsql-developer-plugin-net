@@ -16,5 +16,7 @@ Building
 
 Installing and running the demo plug-in
 ==============
-Just copy the DemoPluginNet.dll to <PL/SQL Developer home>\plugins or to plug-ins directory set in PL/SQL Developer preferences and restart the PL/SQL Developer.
+* Just copy the DemoPluginNet.dll to <PL/SQL Developer home>\plugins or to plug-ins directory set in PL/SQL Developer preferences.
+* Restart the PL/SQL Developer.
+ 
 If everything went correct, you see "Demo plug-in in C#" entry in the Plug-in Manager (Tools > Configure Plug-Ins...) and a new menu  item "Demo plug-in in C#" under Tools menu.
