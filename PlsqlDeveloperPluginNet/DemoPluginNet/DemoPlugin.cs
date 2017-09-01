@@ -31,7 +31,7 @@ namespace DemoPluginNet
         }
 
         #region DLL exported API
-        [DllExport("IdentifyPlugIn", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        [DllExport("IdentifyPlugIn", CallingConvention = CallingConvention.Cdecl)]
         public static string IdentifyPlugIn(int id)
         {
             if (me == null)
@@ -41,7 +41,7 @@ namespace DemoPluginNet
             return PLUGIN_NAME;
         }
 
-        [DllExport("RegisterCallback", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        [DllExport("RegisterCallback", CallingConvention = CallingConvention.Cdecl)]
         public static void RegisterCallback(int index, IntPtr function)
         {
             switch (index)
@@ -55,7 +55,7 @@ namespace DemoPluginNet
             }
         }
 
-        [DllExport("OnMenuClick", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        [DllExport("OnMenuClick", CallingConvention = CallingConvention.Cdecl)]
         public static void OnMenuClick(int index)
         {
             if (index == PLUGIN_MENU_INDEX)
@@ -64,7 +64,7 @@ namespace DemoPluginNet
             }
         }
 
-        [DllExport("CreateMenuItem", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        [DllExport("CreateMenuItem", CallingConvention = CallingConvention.Cdecl)]
         public static string CreateMenuItem(int index)
         {
             if (index == PLUGIN_MENU_INDEX)
@@ -77,7 +77,7 @@ namespace DemoPluginNet
             }
         }
 
-        [DllExport("About", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        [DllExport("About", CallingConvention = CallingConvention.Cdecl)]
         public static string About()
         {
             return "A demo plug-in written in C#.\nVisit project page and wiki at https://github.com/aniskop/plsql-developer-plugin-net.";
