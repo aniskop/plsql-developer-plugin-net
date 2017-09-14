@@ -30,7 +30,7 @@ namespace YourNamespace
         }
 
         #region DLL exported API
-        [DllExport("IdentifyPlugIn", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        [DllExport("IdentifyPlugIn", CallingConvention = CallingConvention.Cdecl)]
         public static string IdentifyPlugIn(int id)
         {
             if (me == null)
@@ -40,14 +40,14 @@ namespace YourNamespace
             return PLUGIN_NAME;
         }
 
-        [DllExport("RegisterCallback", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        [DllExport("RegisterCallback", CallingConvention = CallingConvention.Cdecl)]
         public static void RegisterCallback(int index, IntPtr function)
         {
             //TODO: register pointers to PL/SQL Developer callbacks you need, for instance
             //createWindowCallback = (IdeCreateWindow)Marshal.GetDelegateForFunctionPointer(function, typeof(IdeCreateWindow));
         }
 
-        [DllExport("OnMenuClick", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        [DllExport("OnMenuClick", CallingConvention = CallingConvention.Cdecl)]
         public static void OnMenuClick(int index)
         {
             if (index == PLUGIN_MENU_INDEX)
@@ -56,7 +56,7 @@ namespace YourNamespace
             }
         }
 
-        [DllExport("CreateMenuItem", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        [DllExport("CreateMenuItem", CallingConvention = CallingConvention.Cdecl)]
         public static string CreateMenuItem(int index)
         {
             if (index == PLUGIN_MENU_INDEX)
@@ -70,7 +70,7 @@ namespace YourNamespace
             }
         }
 
-        [DllExport("About", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        [DllExport("About", CallingConvention = CallingConvention.Cdecl)]
         public static string About()
         {
             //TODO: create about dialog
