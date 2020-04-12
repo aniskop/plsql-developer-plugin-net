@@ -12,8 +12,8 @@ namespace DemoPluginNet
 
     public class DemoPlugin
     {
-        private const string PLUGIN_NAME = "Demo plug-in in C#";
-        private const int PLUGIN_MENU_INDEX = 10;
+        private const string PLUGIN_NAME = "Create window";
+        private const int PLUGIN_MENU_INDEX = 3;
 
         private const int CREATE_WINDOW_CALLBACK = 20;
         private const int SET_TEXT_CALLBACK = 34;
@@ -67,20 +67,26 @@ namespace DemoPluginNet
         [DllExport("CreateMenuItem", CallingConvention = CallingConvention.Cdecl)]
         public static string CreateMenuItem(int index)
         {
-            if (index == PLUGIN_MENU_INDEX)
+            switch (index)
             {
-                return "Tools / Demo plug-in in C#";
-            }
-            else
-            {
-                return "";
+                case 1:
+                    return "TAB=Demo plug-ins .NET";
+
+                case 2:
+                    return "GROUP=Create window";
+
+                case PLUGIN_MENU_INDEX:
+                    return "ITEM=Create window";
+
+                default:
+                    return "";
             }
         }
 
         [DllExport("About", CallingConvention = CallingConvention.Cdecl)]
         public static string About()
         {
-            return "A demo plug-in written in C#.\nVisit project page and wiki at https://github.com/aniskop/plsql-developer-plugin-net.";
+            return "The plug-in demonstrates creating a PL/SQL Developer window and setting its text.\nVisit project page and wiki at https://github.com/aniskop/plsql-developer-plugin-net.";
         }
         #endregion
 
