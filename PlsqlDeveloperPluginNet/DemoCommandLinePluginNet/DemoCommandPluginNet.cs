@@ -23,7 +23,7 @@ namespace DemoCommandLinePluginNet
         }
 
         #region DLL exported API
-        [DllExport("IdentifyPlugIn", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        [DllExport("IdentifyPlugIn", CallingConvention = CallingConvention.Cdecl)]
         public static string IdentifyPlugIn(int id)
         {
             if (me == null)
@@ -33,7 +33,7 @@ namespace DemoCommandLinePluginNet
             return PLUGIN_NAME;
         }
 
-        [DllExport("RegisterCallback", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        [DllExport("RegisterCallback", CallingConvention = CallingConvention.Cdecl)]
         public static void RegisterCallback(int index, IntPtr function)
         {
             if (index == COMMAND_FEEDBACK_CALLBACK)
@@ -45,7 +45,9 @@ namespace DemoCommandLinePluginNet
         [DllExport("About", CallingConvention = CallingConvention.Cdecl)]
         public static string About()
         {
-            return "This demo plug-in demonstrates, how plug-in accepts commands in the command window.\nVisit project page and wiki at https://github.com/aniskop/plsql-developer-plugin-net.";
+            return "This demo plug-in demonstrates, how plug-in accepts commands in the command window.\n" +
+                "Just enter \"dm\" and arguments - the plug-in will print your input.\n" +
+                "Visit project page and wiki at https://github.com/aniskop/plsql-developer-plugin-net.";
         }
 
         [DllExport("CommandLine", CallingConvention = CallingConvention.Cdecl)]
